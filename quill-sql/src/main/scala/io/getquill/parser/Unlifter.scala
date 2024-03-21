@@ -95,11 +95,12 @@ object Unlifter {
 
   given unliftAggregation: NiceUnliftable[AggregationOperator] with {
     def unlift = {
-      case '{ AggregationOperator.`min` }  => AggregationOperator.`min`
-      case '{ AggregationOperator.`max` }  => AggregationOperator.`max`
-      case '{ AggregationOperator.`avg` }  => AggregationOperator.`avg`
-      case '{ AggregationOperator.`sum` }  => AggregationOperator.`sum`
-      case '{ AggregationOperator.`size` } => AggregationOperator.`size`
+      case '{ AggregationOperator.`min` }    => AggregationOperator.`min`
+      case '{ AggregationOperator.`max` }    => AggregationOperator.`max`
+      case '{ AggregationOperator.`avg` }    => AggregationOperator.`avg`
+      case '{ AggregationOperator.`sum` }    => AggregationOperator.`sum`
+      case '{ AggregationOperator.`size` }   => AggregationOperator.`size`
+      case '{ AggregationOperator.`custom` } => AggregationOperator.`custom`
     }
   }
 

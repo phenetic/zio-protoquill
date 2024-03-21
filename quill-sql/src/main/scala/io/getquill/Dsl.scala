@@ -50,6 +50,7 @@ def min[A](a: A): A = NonQuotedException()
 def count[A](a: A): A = NonQuotedException()
 def avg[A](a: A)(implicit n: Numeric[A]): BigDecimal = NonQuotedException()
 def sum[A](a: A)(implicit n: Numeric[A]): A = NonQuotedException()
+def custom[A,B](f: A): A = NonQuotedException()
 
 def avg[A](a: Option[A])(implicit n: Numeric[A]): Option[BigDecimal] = NonQuotedException()
 def sum[A](a: Option[A])(implicit n: Numeric[A]): Option[A] = NonQuotedException()
