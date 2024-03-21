@@ -549,6 +549,9 @@ class QueryParser(val rootParse: Parser)(using Quotes, TranspileConfig)
     case "map" -@> '{ ($q: Query[qt]).map[mt](${ Lambda1(ident, tpe, body) }) } =>
       Map(rootParse(q), cleanIdent(ident, tpe), rootParse(body))
 
+    case "aggregate" -@> '{ ($q: Query[qt]).aggregate[mt](${ Lambda1(ident, tpe, body) }) } =>
+      Aggregation(AggregationOperator.`custom`, Map(rootParse(q), cleanIdent(ident, tpe), rootParse(body)))
+
     case "flatMap" -@> '{ ($q: Query[qt]).flatMap[mt](${ Lambda1(ident, tpe, body) }) } =>
       FlatMap(rootParse(q), cleanIdent(ident, tpe), rootParse(body))
 

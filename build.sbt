@@ -1,6 +1,7 @@
-import com.jsuereth.sbtpgp.PgpKeys.publishSigned
-
 Global / onChangedBuildSource := ReloadOnSourceChanges
+
+ThisBuild / githubOwner      := "phenetic"
+ThisBuild / githubRepository := "zio-protoquill"
 
 inThisBuild(
   List(
@@ -85,7 +86,7 @@ val filteredModules = {
   selectedModules
 }
 
-val zioQuillVersion = "4.8.3"
+val zioQuillVersion = "4.8.2+0-72a95cd4+20240321-1121"
 val zioVersion = "2.0.21"
 
 lazy val `quill` =
@@ -95,7 +96,7 @@ lazy val `quill` =
       publishArtifact := false,
       publish / skip := true,
       publishLocal / skip := true,
-      publishSigned / skip := true,
+      //publishSigned / skip := true,
       crossScalaVersions := Nil, // https://www.scala-sbt.org/1.x/docs/Cross-Build.html#Cross+building+a+project+statefully
     )
     .aggregate(filteredModules.map(_.project): _*)
