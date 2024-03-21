@@ -328,6 +328,7 @@ object AstPicklers {
       .addConcreteType[AggregationOperator.`avg`.type]
       .addConcreteType[AggregationOperator.`sum`.type]
       .addConcreteType[AggregationOperator.`size`.type]
+      .addConcreteType[AggregationOperator.`custom`.type]
 
   given CompositePickler[BinaryOperator] =
     compositePickler

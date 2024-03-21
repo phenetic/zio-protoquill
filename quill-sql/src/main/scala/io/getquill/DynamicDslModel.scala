@@ -185,6 +185,9 @@ sealed class DynamicQuery[+T](val q: Quoted[Query[T]]) {
   def size: Quoted[Long] =
     aggregate(AggregationOperator.size)
 
+  def custom[T]: Quoted[Option[T]] =
+    aggregate(AggregationOperator.custom)
+
   def join[A >: T, B](q2: Quoted[Query[B]]): DynamicJoinQuery[A, B, (A, B)] =
     DynamicJoinQuery(InnerJoin, q, q2)
 

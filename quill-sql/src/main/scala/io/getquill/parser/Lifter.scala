@@ -91,11 +91,12 @@ case class Lifter(serializeQuat: SerializeQuat, serializeAst: SerializeAst) exte
 
   given liftAggregation: Lifters.Plain[AggregationOperator] with {
     def lift = {
-      case AggregationOperator.`min`  => '{ AggregationOperator.`min` }
-      case AggregationOperator.`max`  => '{ AggregationOperator.`max` }
-      case AggregationOperator.`avg`  => '{ AggregationOperator.`avg` }
-      case AggregationOperator.`sum`  => '{ AggregationOperator.`sum` }
-      case AggregationOperator.`size` => '{ AggregationOperator.`size` }
+      case AggregationOperator.`min`    => '{ AggregationOperator.`min` }
+      case AggregationOperator.`max`    => '{ AggregationOperator.`max` }
+      case AggregationOperator.`avg`    => '{ AggregationOperator.`avg` }
+      case AggregationOperator.`sum`    => '{ AggregationOperator.`sum` }
+      case AggregationOperator.`size`   => '{ AggregationOperator.`size` }
+      case AggregationOperator.`custom` => '{ AggregationOperator.`custom` }
     }
   }
 
